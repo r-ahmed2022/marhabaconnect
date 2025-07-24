@@ -7,8 +7,8 @@ import mypic3 from './mypic3.png';
 import PageWrapper from './PageWrapper.jsx';
 import { motion } from 'framer-motion';
 import ContentComingSoon from './ContentComingSoon.jsx';
-import TeamCarousel from './ui/TeamCarousel.jsx';
 import { toast } from 'react-toastify';
+import ServicesCarousel from './ui/servicesCarousel.jsx';
 
 const Container = styled.section`
    width: 100%;
@@ -288,7 +288,7 @@ const Home = () => {
         </EmailForm>
       </Left>
       <Right className="right">
-        <TeamCarousel />
+        <ServicesCarousel/>
       </Right>
       </Content>
     </Overlay>
