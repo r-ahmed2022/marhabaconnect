@@ -8,7 +8,7 @@ import PageWrapper from './PageWrapper.jsx';
 import { motion } from 'framer-motion';
 import ContentComingSoon from './ContentComingSoon.jsx';
 import { toast } from 'react-toastify';
-import ServicesCarousel from './ui/servicesCarousel.jsx';
+import ServicesCarousel from './ui/ServicesCarousel.jsx';
 
 const Container = styled.section`
    width: 100%;
