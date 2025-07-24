@@ -1,0 +1,67 @@
+/* Wrapper background inspired by Gulf warmth */
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px;
+  min-height: 70vh;
+  width: 70%
+}
+
+/* Each category block */
+.category-item {
+  position: relative;
+}
+
+/* Gold-inspired category box */
+.category-box {
+  padding: 12px 20px;
+  background-color: #b58b4b; /* Rich Desert Gold */
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.category-box:hover {
+  background-color: #a37028; /* Burnished Bronze */
+}
+
+/* Activities dropdown */
+.child-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  width: 220px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  z-index: 10;
+}
+
+/* List and items */
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-item {
+  color: #262626; /* Deep Charcoal */
+  margin-bottom: 10px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.activity-item:last-child {
+  margin-bottom: 0;
+}
+
+.activity-item:hover {
+  color: #b58b4b; /* Gulf Gold */
+}

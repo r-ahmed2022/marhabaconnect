@@ -1,0 +1,4 @@
+/* toastOverrides.css */
+.Toastify__toast {
+  font-size: 1.6rem; /* or 18px */
+}
