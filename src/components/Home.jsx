@@ -224,7 +224,7 @@ const Home = () => {
   e.preventDefault();
 
   try {
-    const res = await fetch('http://localhost:5000/api/interest', {
+    const res = await fetch('https://marhaba-backend.onrender.com/api/interest', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
