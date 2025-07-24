@@ -65,6 +65,7 @@ const ServiceCard = styled(motion.div)`
   @media (max-width: 768px) {
     padding: 20px;
     border-radius: 14px;
+    margin-top: 20px;
   }
 
   @media (max-width: 480px) {
@@ -144,7 +145,7 @@ const FeaturesList = styled.ul`
   }
 
   @media (max-width: 768px) {
-    font-size: 0.95rem;
+    font-size: 1.5rem;
 
     li {
       padding-left: 18px;

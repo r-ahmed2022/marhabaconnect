@@ -6,7 +6,7 @@ export const services = [
       'GST/Tax filings',
       'Invoice and billing management',
       'Profit and loss reporting',
-      'Dashboard-based insights'
+      'Dashboard-based insights and Analytics'
     ],
     image: 'https://img.icons8.com/color/50/accounting.png',
   },
@@ -50,8 +50,7 @@ export const services = [
       'Email and server setup',
       'Software troubleshooting',
       'Data backup and recovery',
-      'Cybersecurity support'
-    ],
+     ],
     image: 'https://img.icons8.com/color/50/technical-support.png',
   },
   {

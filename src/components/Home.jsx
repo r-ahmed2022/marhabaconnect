@@ -25,11 +25,11 @@ const Container = styled.section`
 
 const Overlay = styled.div`
   position: absolute;
-  top: 0
+  top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -40,19 +40,41 @@ const Overlay = styled.div`
   align-items: flex-start;
 `;
 
+const Navbar = styled.nav`
+  width: 100%;
+  max-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+
+`;
+
+
 const Content = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 80vh;
-  padding: 4rem;
+  height: 90vh;
+  padding: 0 4rem;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 
-  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    padding: 0 2rem;
+    margin-top: -6rem;
+  }
+
 `;
 
 const Left= styled.div`
-  width: 60%;
   height: 100%;
   flex: 0.6;  
   display: flex;
@@ -61,21 +83,51 @@ const Left= styled.div`
     font-family: 'Cairo', sans-serif;
     font-size: 9rem;
     margin-bottom: 1rem;
-    line-height: 1.2;
+    margin-top: -5rem;
+    line-height: 1;
     color: #fff;
-  }
+    @media (max-width: 768px) {
+      font-size: 5rem;
+      text-align: center;
+      margin-top: -1rem;
 
+    }
+  }
+    img {
+    height: auto;   
+    width: 250px;
+    margin-left: -60px;
+    @media (max-width: 768px) {
+      width: 250px;
+      margin: 0 auto;
+      margin-bottom: -4rem;
+
+    }      
+  }
   p {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.85);
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      text-align: center;
+    } 
   }
+  
  `;
 
  const Right= styled.div`
   height: 100%;
   flex: 0.4;  
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -4rem;
+  @media (max-width: 768px) {
+    margin-top: 0;
+    width: 100%;
+
+  }
  `;
 
 const Countdown = styled.div`
@@ -146,16 +198,6 @@ const EmailForm = styled.form`
   }
 `;
 
-const Navbar = styled.nav`
-    width: 100%;
-    height: 30vh;
-    position: relative;
-    padding: .5rem 1rem;
-    align-items: flex-start;
-    border: black;
-    margin-left: -20px;
-    padding: 0 ;
-`;
 
 
 const FooterIcons = styled.div`
@@ -255,10 +297,11 @@ const Home = () => {
         <Confetti numberOfPieces={40} />
           <Overlay>
             <Navbar className="nav">
-              <img src={marhaba_logo} alt="Marhaba Logo" style={{ width: '250px', height: 'auto' }} />
+              
             </Navbar>
           <Content>
             <Left className="left">
+            <img src={marhaba_logo} alt="Marhaba Logo"  />
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
