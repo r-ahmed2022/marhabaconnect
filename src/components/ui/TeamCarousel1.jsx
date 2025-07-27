@@ -52,12 +52,13 @@ const TeamCard = styled(motion.div)`
   font-family: 'Cairo', sans-serif;
   transition: background-color 0.3s ease;
   touch-action: manipulation;
+     h3, p, span, small {
+    color: #fff;
+  }
   &:hover {
       background: rgba(255, 153, 0,1 );
 
-    h3, p, span, small {
-    color: #fff;
-  }
+ 
 
   }
 
