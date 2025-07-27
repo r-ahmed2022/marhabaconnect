@@ -45,14 +45,16 @@ const TeamCard = styled(motion.div)`
   inset: 0;
   backdrop-filter: blur(15px);
   border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+
   padding: 8px;
   cursor: pointer;
   font-family: 'Cairo', sans-serif;
-  background: rgba(255, 153, 0,1 );
   transition: background-color 0.3s ease;
   touch-action: manipulation;
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 153, 0,1 );
+
     h3, p, span, small {
     color: #fff;
   }
