@@ -62,7 +62,7 @@ export const services = [
       'Branding and identity design',
       'Content creation and scheduling'
     ],
-    image: 'https://img.icons8.com/color/50/advertising.png',
+    image: 'https://cdn-icons-png.flaticon.com/512/10493/10493370.png',
   }
 ];
 export default services;

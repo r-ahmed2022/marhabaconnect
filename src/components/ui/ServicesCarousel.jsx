@@ -181,7 +181,7 @@ const Dot = styled.button`
   }
 `;
 
-const ServicesCarousel = () => {
+const ServicesCarousel = ({showserviceCaroursel}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -216,6 +216,9 @@ const ServicesCarousel = () => {
   };
 
   return (
+    <>
+    {
+      showserviceCaroursel &&
     <CarouselContainer>
       <CardContainer>
         <AnimatePresence mode="wait">
@@ -253,6 +256,8 @@ const ServicesCarousel = () => {
         ))}
       </NavigationDots>
     </CarouselContainer>
+    }
+    </>
   );
 };
 

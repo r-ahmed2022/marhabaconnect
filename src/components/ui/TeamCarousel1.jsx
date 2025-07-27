@@ -5,13 +5,16 @@ import { directors } from '../../Team';
 
 const CarouselContainer = styled.div`
   position: relative;
-  width: 320px;
-  height: 400px;
+  width: 300px;
+  inset: 0;
+  height: 300px;
   margin: 0 auto;
+  
+ 
 
   @media (max-width: 1024px) {
-    width: 300px;
-    height: 380px;
+    width: 350px;
+    height: 150px;
   }
 
   @media (max-width: 768px) {
@@ -26,7 +29,7 @@ const CarouselContainer = styled.div`
 
   @media (max-width: 375px) {
     width: 240px;
-    height: 320px;
+    height: auto;
   }
 `;
 
@@ -34,23 +37,26 @@ const CardContainer = styled.div`
   position: absolute;
   inset: 0;
   overflow: hidden;
+
 `;
 
 const TeamCard = styled(motion.div)`
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 8px;
   cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  background: rgba(255, 153, 0,1 );
   transition: background-color 0.3s ease;
-  animation: float 3s ease-in-out infinite;
   touch-action: manipulation;
-
   &:hover {
     background: rgba(255, 255, 255, 0.2);
+    h3, p, span, small {
+    color: #fff;
+  }
+
   }
 
   @keyframes float {
@@ -63,12 +69,12 @@ const TeamCard = styled(motion.div)`
   }
 
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 10px;
     border-radius: 14px;
   }
 
   @media (max-width: 480px) {
-    padding: 18px;
+    padding: 8px;
     border-radius: 12px;
   }
 
@@ -101,14 +107,15 @@ const CardContent = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  
 `;
 
-const MemberName = styled.h3`
+const MemberName = styled.h3`/
   font-family: 'Cairo', sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: #333;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -120,7 +127,7 @@ const MemberRole = styled.p`
   font-family: 'Cairo', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  color: #ff9900;
+  color: #333;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -131,7 +138,7 @@ const MemberRole = styled.p`
 const MemberBio = styled.p`
   font-family: 'Cairo', sans-serif;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #000;
   line-height: 1.5;
   margin: 0;
 
@@ -142,11 +149,12 @@ const MemberBio = styled.p`
 
 const NavigationDots = styled.div`
   position: absolute;
-  bottom: -32px;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 12px;
+  marginTop: 1rem;
 `;
 
 const Dot = styled.button`
@@ -156,6 +164,7 @@ const Dot = styled.button`
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  
   background-color: ${props => props.isActive ? '#ff9900' : 'rgba(255, 255, 255, 0.5)'};
 
   &:hover {

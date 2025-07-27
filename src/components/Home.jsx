@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import styled from 'styled-components';
 import CategoryComponent from './CategoryComponent.jsx'
 import Confetti from 'react-confetti'
@@ -9,7 +9,12 @@ import { motion } from 'framer-motion';
 import ContentComingSoon from './ContentComingSoon.jsx';
 import { toast } from 'react-toastify';
 import ServicesCarousel from './ui/ServicesCarousel.jsx';
-
+import MoreInfo from './MoreInfo.jsx';
+import HamburgerMenu from './HamburgerMenu.jsx';
+import './index.scss';
+import { directors } from '../Team.js';
+import TeamCarousel from './ui/TeamCarousel1.jsx';
+import HamburgerList from './HamburgerList.jsx';
 const Container = styled.section`
    width: 100%;
    height: 100vh;
@@ -38,22 +43,35 @@ const Overlay = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 6rem;
 `;
 
 const Navbar = styled.nav`
-  width: 100%;
   max-height: 30vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end; 
   padding: 1rem 2rem;
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  top: -2rem;
+  right: 0;
   box-sizing: border-box;
-
+   @media (max-width: 768px) {
+  }
 `;
 
-
+ const AboutUs = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 4rem;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+`;
 const Content = styled.div`
   position: relative;
   z-index: 1;
@@ -236,6 +254,18 @@ const FooterIcons = styled.div`
 const Home = () => {
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
    const [email, setEmail] = useState('');
+   const [showHamburgerContainer, setShowHamburgerContainer] = useState(false);
+   const [activeSection, setActiveSection] = useState(null); 
+   const [showserviceCaroursel, setShowServiceCarousel] = useState(true);
+   const [activeIndex, setActiveIndex] = useState(0);
+
+   const hamburgerRef = useRef();
+
+const handleAboutClick = () => {
+  setShowAbout(prev => !prev);
+  setShowMoreInfo(false);
+};
+
 
 
 
@@ -262,17 +292,23 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, []);
+  useEffect(() => {
+  if (showHamburgerContainer) {
+    setActiveSection('about');
+  }
+}, [showHamburgerContainer]);
    const leadFormHandler = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch('https://marhaba-backend.onrender.com/api/interest', {
+    const res = await fetch('http://localhost:5000/api/interest', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     });
 
     const result = await res.json();
+    console.log(result);
 
     if (res.ok) {
        toast.success('Thanks! You’ll be notified 🎉');
@@ -280,7 +316,7 @@ const Home = () => {
       setEmail('');
     } else {
       console.error(result);
-     toast.error('Something went wrong. Please try again.');
+     toast.error(result.message || 'Error saving email');
 
     }
   } catch (err) {
@@ -289,18 +325,207 @@ const Home = () => {
 
   }
 };
+
+ const handleHamburgerToggle = () => {
+  setShowServiceCarousel(prev => !prev);
+  setShowHamburgerContainer(prev => !prev);
+};
   
   return (
    <Container className="container">
-     
+      <Confetti numberOfPieces={60} />
         <PageWrapper>
-        <Confetti numberOfPieces={40} />
+  <style>
+    {`
+      @media screen and (max-width: 768px) {
+        .hamburger-container {
+          width: 100% !important;
+        }
+      }
+    `}
+  </style>
+
+    ...
           <Overlay>
+            
+
             <Navbar className="nav">
+              <HamburgerMenu 
+                 isOpen={showHamburgerContainer}
+                setShowHamburgerContainer={setShowHamburgerContainer}
+                onToggle={handleHamburgerToggle} 
               
+                />
             </Navbar>
+
+            
+            <motion.div
+  className='hamburger-container'
+  ref={hamburgerRef}
+  initial={{ x: '100%' }}
+  animate={{ x: showHamburgerContainer ? '0%' : '100%' }}
+
+  transition={{ duration: 0.4 }}
+  style={{
+    position: 'absolute',
+    top: '.5rem',
+    right: 0,
+    height: '100vh',
+    width: '50%',
+    background: 'rgba(1, 1, 1, 0.3)',
+    color: '#fff',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    padding: '3rem 2rem',  
+    zIndex: 10,
+    boxShadow: '-2px 0 6px rgba(0,0,0,0.8)',
+    boxSizing: 'border-box',
+    display: 'flex',
+  }}
+  
+>
+  <HamburgerList setActiveIndex={setActiveIndex} activeIndex={activeIndex}/>
+
+  {activeIndex === 0 &&  showHamburgerContainer && (
+  <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.3 }}
+  style={{
+     width: '90%',
+     margin: '2rem auto',
+    padding: '2rem',
+    width: '70%',
+    maxWidth: '700px',
+    minHeight: '90vh', 
+    borderRadius: '12px',
+    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    boxSizing: 'border-box',
+    marginBottom: '2rem',
+  }}
+>
+  <div style={{ marginBottom: '2rem' }}>
+    <h2 style={{ marginBottom: '1rem', fontSize: '1.5rem', color: '#fff' }}>About Marhaba Connect</h2>
+    <p className="aboutusInfo" >
+    We help brands scale smarter by streamlining operations and reducing overhead. From IT to recruitment, bookkeeping to ecommerce—our service suite adapts to your ambition, whether you’re starting out or expanding globally
+    </p>
+        <h2 style={{color: '#FF9900', fontSize: '1.5rem', marginBottom: '1rem'}}>🤝 Why Partner With Us?</h2>
+<ul className="whyus" style={{listStyle: 'none', paddingLeft: '0', lineHeight: '1.8', color: '#fff', borderBottom: '2px solid #b58b4b'}}>
+  <li style={{marginBottom: '0.5rem', marginLeft: '2.6rem', fontSize: '1.2rem'}}>✅ Experienced professionals across verticals</li>
+  <li style={{marginBottom: '0.5rem', marginLeft: '2.6rem', fontSize: '1.2rem'}}>✅ Scalable solutions tailored to your business model</li>
+  <li style={{marginBottom: '0.5rem', marginLeft: '2.6rem', fontSize: '1.2rem'}}>✅ Transparent processes and modern infrastructure</li>
+</ul>
+  </div>
+
+ <TeamCarousel />
+
+</motion.div>
+  )}
+
+  {activeIndex === 1 &&  showHamburgerContainer && (
+    <motion.div
+      className='form-container'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      style={{ width: '90%', margin: '2rem auto', padding: '18rem 0rem 0 0rem', width: '70%', maxWidth: '700px', minHeight: '90vh', borderRadius: '12px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', marginTop: '2rem' , display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '3rem'}}
+    >
+      <h1>Something in Mind, Leave a Message </h1>
+      <form 
+         style={{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+        margin: '2rem auto',
+        padding: '2rem',
+        maxWidth: '500px',
+        width: '100%',
+        boxSizing: 'border-box',
+      background: 'rgba(1, 1, 1, 0.5)',
+        borderRadius: '8px',
+
+  }}
+
+      
+      >
+                                    <div className="form__group">
+                                    <input type="text" 
+                                      className="form__input" 
+                                      placeholder="Full name" id="name" 
+                                      required
+                                       style={{
+                                        padding: '1rem',
+                                        fontSize: '1.2rem',
+                                        borderRadius: '4px',
+                                        border: '1px solid #ccc',
+                                        background: 'transparent',
+                                        color: '#fff',
+
+    }}
+
+                                       />
+                                    <label for="name" className="form__label">Full name</label>
+                                  </div>
+
+                                <div className="form__group">
+                                    <input type="email" 
+                                        className="form__input" 
+                                        placeholder="Email address"
+                                        id="email"
+                                        required 
+                                        style={{
+                                        padding: '1rem',
+                                        fontSize: '1.2rem',
+                                        borderRadius: '4px',
+                                        border: '1px solid #ccc',
+                                        background: 'transparent',
+                                        color: '#fff',
+
+    }}
+                                        />
+                                    <label for="email" className="form__label">Email address</label>
+                                </div>
+          <textarea
+          placeholder="What would you like to know?"
+          rows="3"
+          required
+          style={{
+            padding: '1rem',
+            fontSize: '1.2rem',
+            borderRadius: '4px',
+            border: '1px solid #ccc',
+            resize: 'vertical',
+            background:  'transparent',
+            color: '#fff',
+
+          }}
+        />
+        <button type="submit"   
+          style={{
+          padding: '1rem',
+          background: '#ff9900',
+          color: '#fff',
+          border: 'none',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          borderRadius: '4px',
+          fontSize: '1.1rem'
+    }}
+      >
+          Submit
+        </button>
+      </form>
+    </motion.div>
+  )}
+</motion.div>
+
+
           <Content>
-            <Left className="left">
+          {  showserviceCaroursel && <Left className="left">
             <img src={marhaba_logo} alt="Marhaba Logo"  />
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
@@ -330,10 +555,14 @@ const Home = () => {
           <button type="submit">Notify Me</button>
         </EmailForm>
       </Left>
+          }
       <Right className="right">
-        <ServicesCarousel/>
+        <ServicesCarousel 
+        showserviceCaroursel={showserviceCaroursel} 
+        setShowServiceCarousel={setShowServiceCarousel}
+        />
       </Right>
-      </Content>
+      </Content> 
     </Overlay>
       <FooterIcons>
         <a href="#"><i className="fab fa-facebook-f"></i></a>
