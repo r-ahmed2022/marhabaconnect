@@ -334,7 +334,7 @@ const handleAboutClick = () => {
   e.preventDefault();
 
   try {
-    const res = await fetch('https://marhaba-backend.onrender.com:5000/api/interest', {
+    const res = await fetch('https://marhaba-backend.onrender.com/api/interest', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
