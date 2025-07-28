@@ -16,6 +16,7 @@ import { directors } from '../Team.js';
 import TeamCarousel from './ui/TeamCarousel1.jsx';
 import HamburgerList from './HamburgerList.jsx';
 import OfficeMap from './OfficeMap.jsx';
+import { QueryForm } from './QueryForm.jsx';
 const Container = styled.section`
    width: 100%;
    height: 100vh;
@@ -291,6 +292,9 @@ const FooterIcons = styled.div`
 const Home = () => {
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
    const [email, setEmail] = useState('');
+   const [queryemail, setQueryEmail] = useState('');
+   const [fullname, setFullName] = useState('');
+   const [message, setMessage] = useState('');
    const [showHamburgerContainer, setShowHamburgerContainer] = useState(false);
    const [activeSection, setActiveSection] = useState(null); 
    const [showserviceCaroursel, setShowServiceCarousel] = useState(true);
@@ -362,6 +366,7 @@ const handleAboutClick = () => {
 
   }
 };
+
 
  const handleHamburgerToggle = () => {
   setShowServiceCarousel(prev => !prev);
@@ -474,91 +479,7 @@ const handleAboutClick = () => {
       transition={{ duration: 0.3 }}
     >
       <h1>Something in Mind, Leave a Message </h1>
-      <form 
-         style={{
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-        margin: '2rem auto',
-        padding: '2rem',
-        maxWidth: '500px',
-        width: '100%',
-        boxSizing: 'border-box',
-      background: 'rgba(1, 1, 1, 0.5)',
-        borderRadius: '8px',
-
-  }}
-
-      
-      >
-                                    <div className="form__group">
-                                    <input type="text" 
-                                      className="form__input" 
-                                      placeholder="Full name" id="name" 
-                                      required
-                                       style={{
-                                        padding: '1rem',
-                                        fontSize: '1.2rem',
-                                        borderRadius: '4px',
-                                        border: '1px solid #ccc',
-                                        background: 'transparent',
-                                        color: '#fff',
-
-    }}
-
-                                       />
-                                    <label for="name" className="form__label">Full name</label>
-                                  </div>
-
-                                <div className="form__group">
-                                    <input type="email" 
-                                        className="form__input" 
-                                        placeholder="Email address"
-                                        id="email"
-                                        required 
-                                        style={{
-                                        padding: '1rem',
-                                        fontSize: '1.2rem',
-                                        borderRadius: '4px',
-                                        border: '1px solid #ccc',
-                                        background: 'transparent',
-                                        color: '#fff',
-
-    }}
-                                        />
-                                    <label for="email" className="form__label">Email address</label>
-                                </div>
-          <textarea
-          placeholder="What would you like to know?"
-          rows="3"
-          required
-          style={{
-            padding: '1rem',
-            fontSize: '1.2rem',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            resize: 'vertical',
-            background:  'transparent',
-            color: '#fff',
-
-          }}
-        />
-        <button type="submit"   
-          style={{
-          padding: '1rem',
-          background: '#ff9900',
-          color: '#fff',
-          border: 'none',
-          cursor: 'pointer',
-          fontWeight: 'bold',
-          borderRadius: '4px',
-          fontSize: '1.1rem'
-    }}
-      >
-          Submit
-        </button>
-      </form>
+       <QueryForm />
       <div className='registered-address'>
           <OfficeMap />
       </div>
