@@ -236,7 +236,10 @@ const EmailForm = styled.form`
 
 
 const FooterIcons = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   position: absolute;
   bottom: 2rem;
@@ -602,13 +605,14 @@ const handleAboutClick = () => {
         setShowServiceCarousel={setShowServiceCarousel}
         />
       </Right>
-        <FooterIcons>
+        
+      </Content> 
+       <FooterIcons>
         <a href="#"><i className="fab fa-facebook-f"></i></a>
         <a href="#"><i className="fab fa-instagram"></i></a>
       </FooterIcons>
-      </Content> 
     </Overlay>
-    
+      
         </PageWrapper>
    </Container>
   )
