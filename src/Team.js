@@ -2,7 +2,7 @@ export const directors = [
   { name: 'Sajad Mir', 
     title: 'Managing Director',
     image: './images/sajad.jpg',
-    bio: 'More than decades of experience in the IT industry, leading strategic initiatives in the UAE.',
+    bio: 'Experienced across global brands and industries in the UAE.',
    },
   { name: 'Malik Uzair', 
     title: 'Director' ,
@@ -12,7 +12,7 @@ export const directors = [
   { name: 'Riyaz Ahmed',
     title: 'Operations Director',
     image: './images/riyaz1.jpeg',
-    bio: 'Web developer with decade of experience, specialized in optimizing operations and enhancing customer experiences.',
+    bio: 'Specialized in optimizing operations, branding and enhancing customer experiences.',
    },
   
 ];

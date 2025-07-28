@@ -115,6 +115,9 @@ const ServiceName = styled.h3`
   @media (max-width: 768px) {
     font-size: 20px;
   }
+  @media (max-width: 415px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const FeaturesList = styled.ul`
@@ -147,6 +150,18 @@ const FeaturesList = styled.ul`
   @media (max-width: 768px) {
     font-size: 1.5rem;
 
+    li {
+      padding-left: 18px;
+      margin-bottom: 6px;
+    }
+
+    li::before {
+      font-size: 1rem;
+    }
+  }
+    @media (max-width: 415px) {
+    font-size: 1.5rem;
+    margin-top: 0.8rem;
     li {
       padding-left: 18px;
       margin-bottom: 6px;

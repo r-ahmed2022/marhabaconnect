@@ -9,7 +9,7 @@ const CarouselContainer = styled.div`
   inset: 0;
   height: 300px;
   margin: 0 auto;
-  
+
  
 
   @media (max-width: 1024px) {
@@ -24,12 +24,15 @@ const CarouselContainer = styled.div`
 
   @media (max-width: 480px) {
     width: 260px;
-    height: 320px;
+    height: 280px;
+    font-size: auto;
+    align-self: center;
   }
 
   @media (max-width: 375px) {
-    width: 240px;
-    height: auto;
+    width: 200px;
+    height: 250px;
+    font-size: auto;
   }
 `;
 
@@ -37,9 +40,7 @@ const CardContainer = styled.div`
   position: absolute;
   inset: 0;
   overflow: hidden;
-
 `;
-
 const TeamCard = styled(motion.div)`
   position: absolute;
   inset: 0;
@@ -57,9 +58,6 @@ const TeamCard = styled(motion.div)`
   }
   &:hover {
       background: rgba(255, 153, 0,1 );
-
- 
-
   }
 
   @keyframes float {
@@ -79,10 +77,24 @@ const TeamCard = styled(motion.div)`
   @media (max-width: 480px) {
     padding: 8px;
     border-radius: 12px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    font-size: auto;
+
   }
 
   @media (max-width: 375px) {
-    padding: 16px;
+    padding: 4px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+       font-size: auto;
+
   }
 `;
 
@@ -101,8 +113,9 @@ const ProfileImage = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
   }
 `;
 
@@ -123,6 +136,9 @@ const MemberName = styled.h3`/
 
   @media (max-width: 768px) {
     font-size: 20px;
+  }
+   @media (max-width: 415px) {
+    font-size: 12px;
   }
 `;
 

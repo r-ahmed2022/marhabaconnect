@@ -38,7 +38,7 @@ const Overlay = styled.div`
   width: 100%;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  overflowY: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -82,7 +82,7 @@ const Content = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
-
+  
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
@@ -110,6 +110,12 @@ const Left= styled.div`
       margin-top: -1rem;
 
     }
+     @media (max-width: 415px) {
+      font-size: 3.5rem;
+      text-align: center;
+      margin-top: -1rem;
+
+    }
   }
     img {
     height: auto;   
@@ -120,7 +126,14 @@ const Left= styled.div`
       margin: 0 auto;
       margin-bottom: -4rem;
 
-    }      
+    } 
+     @media (max-width: 415px) {
+      width: 180px;
+      height: auto;
+      margin: 0 auto;
+      margin-bottom: -2rem;
+
+    }     
   }
   p {
     font-size: 2rem;
@@ -144,7 +157,7 @@ const Left= styled.div`
   @media (max-width: 768px) {
     margin-top: 0;
     width: 100%;
-
+    overflow: hidden;
   }
  `;
 
@@ -193,6 +206,9 @@ const EmailForm = styled.form`
     border: none;
     border-radius: 5px;
     width: 60%;
+    @media (max-width: 415px) {
+      padding: 1rem;
+    }
   }
 
   button {
@@ -247,6 +263,23 @@ const FooterIcons = styled.div`
     justify-content: center;
     margin-top: 2rem;
   }
+   @media (max-width: 415px) {
+     a {
+    color: #fff;
+    font-size: 2.5rem;
+    transition: color 0.3s;
+    display: block;
+    border-radius: 50%;
+    margin-right: 2rem;
+
+        &:hover {
+      color: #ffcc00;
+    }
+      &.facebook {
+      color: #1877F2;
+       }
+  }
+   }
 `;
 
 
@@ -374,9 +407,9 @@ const handleAboutClick = () => {
     width: '50%',
     background: 'rgba(1, 1, 1, 0.3)',
     color: '#fff',
-    overflowY: 'auto',
+    overflowY: 'hidden',
     overflowX: 'hidden',
-    padding: '3rem 2rem',  
+    padding: '3rem 0rem 1rem 1rem',  
     zIndex: 10,
     boxShadow: '-2px 0 6px rgba(0,0,0,0.8)',
     boxSizing: 'border-box',
@@ -388,6 +421,7 @@ const handleAboutClick = () => {
 
   {activeIndex === 0 &&  showHamburgerContainer && (
   <motion.div
+  className='about-container'
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ duration: 0.3 }}
@@ -405,6 +439,8 @@ const handleAboutClick = () => {
     justifyContent: 'space-between',
     boxSizing: 'border-box',
     marginBottom: '2rem',
+    overflowY: 'auto',
+    overflowX: 'hidden'
   }}
 >
   <div style={{ marginBottom: '2rem' }}>
@@ -431,7 +467,6 @@ const handleAboutClick = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      style={{ width: '90%', margin: '2rem auto', padding: '18rem 0rem 0 0rem', width: '70%', maxWidth: '700px', minHeight: '90vh', borderRadius: '12px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', marginTop: '2rem' , display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '3rem'}}
     >
       <h1>Something in Mind, Leave a Message </h1>
       <form 
@@ -544,7 +579,7 @@ const handleAboutClick = () => {
         >
           Sign up to be notified!
         </motion.p>
-        <EmailForm onSubmit={leadFormHandler}> 
+        <EmailForm className="notify-form" onSubmit={leadFormHandler}> 
           <input
             type="email"
             placeholder="Enter your email"
@@ -562,12 +597,13 @@ const handleAboutClick = () => {
         setShowServiceCarousel={setShowServiceCarousel}
         />
       </Right>
-      </Content> 
-    </Overlay>
-      <FooterIcons>
+        <FooterIcons>
         <a href="#"><i className="fab fa-facebook-f"></i></a>
         <a href="#"><i className="fab fa-instagram"></i></a>
       </FooterIcons>
+      </Content> 
+    </Overlay>
+    
         </PageWrapper>
    </Container>
   )
