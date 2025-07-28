@@ -15,6 +15,7 @@ import './index.scss';
 import { directors } from '../Team.js';
 import TeamCarousel from './ui/TeamCarousel1.jsx';
 import HamburgerList from './HamburgerList.jsx';
+import OfficeMap from './OfficeMap.jsx';
 const Container = styled.section`
    width: 100%;
    height: 100vh;
@@ -407,9 +408,10 @@ const handleAboutClick = () => {
     width: '50%',
     background: 'rgba(1, 1, 1, 0.3)',
     color: '#fff',
-    overflowY: 'hidden',
+    overflowY: 'auto',
     overflowX: 'hidden',
-    padding: '3rem 0rem 1rem 1rem',  
+    marginTop: '-4rem',
+    padding: '0rem 0rem 1rem 1rem',  
     zIndex: 10,
     boxShadow: '-2px 0 6px rgba(0,0,0,0.8)',
     boxSizing: 'border-box',
@@ -554,6 +556,9 @@ const handleAboutClick = () => {
           Submit
         </button>
       </form>
+      <div className='registered-address'>
+          <OfficeMap />
+      </div>
     </motion.div>
   )}
 </motion.div>

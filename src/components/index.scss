@@ -181,11 +181,13 @@
         width: 80%;
         padding: 10rem 0 0 0;
         text-align: center;
+        overflow-y: auto;
         h1 {
           font-size: 1.8rem;
         }
       }
   }
+
 
     form {
 
@@ -236,3 +238,12 @@
   
   }
     
+
+  .registered-address {
+      width: auto;
+      height: auto;
+      display: flex;
+       justify-content: center;
+       align-items: center;
+       background: transparent;
+  }
