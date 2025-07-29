@@ -17,6 +17,7 @@ import TeamCarousel from './ui/TeamCarousel1.jsx';
 import HamburgerList from './HamburgerList.jsx';
 import OfficeMap from './OfficeMap.jsx';
 import { QueryForm } from './QueryForm.jsx';
+import AboutUs from './AboutUs.jsx';
 const Container = styled.section`
    width: 100%;
    height: 100vh;
@@ -62,18 +63,7 @@ const Navbar = styled.nav`
   }
 `;
 
- const AboutUs = styled.div`
-  position: absolute;
-  top: 50%;
-  right: 4rem;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  z-index: 2;
-`;
+
 const Content = styled.div`
   position: relative;
   z-index: 1;
@@ -435,37 +425,10 @@ const handleAboutClick = () => {
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ duration: 0.3 }}
-  style={{
-     width: '90%',
-     margin: '2rem auto',
-    padding: '2rem',
-    width: '70%',
-    maxWidth: '700px',
-    minHeight: '90vh', 
-    borderRadius: '12px',
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    boxSizing: 'border-box',
-    marginBottom: '2rem',
-    overflowY: 'auto',
-    overflowX: 'hidden'
-  }}
+ 
 >
-  <div style={{ marginBottom: '2rem' }}>
-    <h2 style={{ marginBottom: '1rem', fontSize: '1.5rem', color: '#fff' }}>About Marhaba Connect</h2>
-    <p className="aboutusInfo" >
-    We help brands scale smarter by streamlining operations and reducing overhead. From IT to recruitment, bookkeeping to ecommerce—our service suite adapts to your ambition, whether you’re starting out or expanding globally
-    </p>
-        <h2 style={{color: '#FF9900', fontSize: '1.5rem', marginBottom: '1rem'}}>🤝 Why Partner With Us?</h2>
-<ul className="whyus" style={{listStyle: 'none', paddingLeft: '0', lineHeight: '1.8', color: '#fff', borderBottom: '2px solid #b58b4b'}}>
-  <li style={{marginBottom: '0.5rem', marginLeft: '2.6rem', fontSize: '1.2rem'}}>✅ Experienced professionals across verticals</li>
-  <li style={{marginBottom: '0.5rem', marginLeft: '2.6rem', fontSize: '1.2rem'}}>✅ Scalable solutions tailored to your business model</li>
-  <li style={{marginBottom: '0.5rem', marginLeft: '2.6rem', fontSize: '1.2rem'}}>✅ Transparent processes and modern infrastructure</li>
-</ul>
-  </div>
-
+ 
+ <AboutUs />
  <TeamCarousel />
 
 </motion.div>
