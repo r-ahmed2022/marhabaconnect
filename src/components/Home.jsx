@@ -42,6 +42,7 @@ const Overlay = styled.div`
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   overflowY: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -491,10 +492,11 @@ const handleAboutClick = () => {
       </Right>
         
       </Content> 
-       <FooterIcons>
+      { !showHamburgerContainer &&  <FooterIcons>
         <a href="#"><i className="fab fa-facebook-f"></i></a>
         <a href="#"><i className="fab fa-instagram"></i></a>
       </FooterIcons>
+      }
     </Overlay>
       
         </PageWrapper>

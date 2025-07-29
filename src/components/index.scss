@@ -75,17 +75,21 @@
   }
 
   .whyus {
+      li {
+        text-align: left;
+      }
      @media screen and (max-width: 768px) {
       margin-left: 0rem;
      }
 
-     li {
-        text-align: center;
+     @media screen and (max-width: 415px) {
+      margin-left: 0rem;
+      text-align: justify;  
      }
   }
 
   .about-container {
-    width: 80%;
+    width: 75%;
     max-width: 700px;
     min-height: 90vh;
     margin: 3.5rem auto 2rem auto;
@@ -99,7 +103,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     @media screen and (max-width: 415px) {
-      width: 100%;
+      width: 80%;
       font-size: auto;
     }
   }
@@ -107,12 +111,13 @@
   .aboutus {
     margin-bottom: 2rem;
     color: #FF9900;
+    text-align: left;
+
     @media screen and (max-width: 600px) {
            text-align: center;
            h2 {
               margin: 1rem;
               color: #FF9900;
-
            }
     }
     }

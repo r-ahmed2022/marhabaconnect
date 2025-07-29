@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 const AboutUs = () => {
     const itemStyle = {
     marginBottom: '0.5rem',
-    marginLeft: '2.6rem',
     fontSize: '1.2rem',
     textAlign: 'justify'
    };
