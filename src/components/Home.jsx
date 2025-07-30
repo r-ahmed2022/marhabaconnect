@@ -41,7 +41,7 @@ const Overlay = styled.div`
   width: 100%;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  overflowY: auto;
+  overflow-y: auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
