@@ -335,8 +335,10 @@ const handleAboutClick = () => {
   try {
     const res = await fetch('https://marhaba-backend.onrender.com/api/interest', {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email }),
+      
     });
 
     const result = await res.json();
