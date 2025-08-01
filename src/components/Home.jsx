@@ -18,6 +18,8 @@ import HamburgerList from './HamburgerList.jsx';
 import OfficeMap from './OfficeMap.jsx';
 import { QueryForm } from './QueryForm.jsx';
 import AboutUs from './AboutUs.jsx';
+import { API_BASE_URL } from '../config';
+
 const Container = styled.section`
    width: 100%;
    height: 100vh;
@@ -333,7 +335,7 @@ const handleAboutClick = () => {
   e.preventDefault();
 
   try {
-    const res = await fetch('https://marhaba-backend.onrender.com/api/interest', {
+    const res = await fetch(`${API_BASE_URL}/api/interest`, {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },

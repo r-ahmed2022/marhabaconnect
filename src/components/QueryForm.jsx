@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../config.js';
 
 export const QueryForm = () => {
     const [fullname, setFullName] = useState('');
     const [queryemail, setQueryEmail] = useState('');
     const [message, setMessage] = useState('');
+  
     const queryFormHandler = async (e) => {
   e.preventDefault();
 
  try {
-  const res = await fetch('https://marhaba-backend.onrender.com/api/query', {
+  const res = await fetch(`${API_BASE_URL}/api/query`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ fullname, queryemail, message })
