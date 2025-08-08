@@ -200,6 +200,7 @@ const EmailForm = styled.form`
     letter-spacing: 0.2rem;
     border: none;
     border-radius: 5px;
+    color: #1c1c1c;
     width: 60%;
     @media (max-width: 415px) {
       padding: 1rem;

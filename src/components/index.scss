@@ -288,3 +288,12 @@
        align-items: center;
        background: transparent;
   }
+
+  .notify-form {
+    input::placeholder {
+      color: #1c1c1c;
+      font-size: 1.3rem;
+      letter-spacing: .2rem;
+    }
+    
+  }
