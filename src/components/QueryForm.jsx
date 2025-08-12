@@ -13,7 +13,9 @@ export const QueryForm = () => {
  try {
   const res = await fetch(`${API_BASE_URL}/api/query`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json',
+              'X-Firm': 'marhabaconnect'
+     },
     body: JSON.stringify({ fullname, queryemail, message })
   });
 

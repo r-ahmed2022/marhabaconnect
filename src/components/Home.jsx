@@ -339,7 +339,9 @@ const handleAboutClick = () => {
     const res = await fetch(`${API_BASE_URL}/api/interest`, {
       method: 'POST',
       credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json',
+        'X-Firm': 'marhabaconnect'
+       },
       body: JSON.stringify({ email }),
       
     });
