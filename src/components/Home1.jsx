@@ -19,6 +19,12 @@ import OfficeMap from './OfficeMap.jsx';
 import { QueryForm } from './QueryForm.jsx';
 import AboutUs from './AboutUs.jsx';
 import { API_BASE_URL } from '../config';
+import ChatWidget from './ChatWidget.jsx';
+
+// Generate unique session ID
+const generateSessionId = () => {
+  return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+};
 
 const Container = styled.section`
    width: 100%;
@@ -283,20 +289,23 @@ const FooterIcons = styled.div`
 
 
 
-const Home = () => {
-   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-   const [email, setEmail] = useState('');
-   const [queryemail, setQueryEmail] = useState('');
-   const [fullname, setFullName] = useState('');
-   const [message, setMessage] = useState('');
-   const [showHamburgerContainer, setShowHamburgerContainer] = useState(false);
-   const [activeSection, setActiveSection] = useState(null);
-   const [showserviceCaroursel, setShowServiceCarousel] = useState(true);
-   const [activeIndex, setActiveIndex] = useState(0);
-   const [showAbout, setShowAbout] = useState(false);
-   const [showMoreInfo, setShowMoreInfo] = useState(false);
+const Home1 = () => {
+    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    const [email, setEmail] = useState('');
+    const [queryemail, setQueryEmail] = useState('');
+    const [fullname, setFullName] = useState('');
+    const [message, setMessage] = useState('');
+    const [showHamburgerContainer, setShowHamburgerContainer] = useState(false);
+    const [activeSection, setActiveSection] = useState(null);
+    const [showserviceCaroursel, setShowServiceCarousel] = useState(true);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [showAbout, setShowAbout] = useState(false);
+    const [showMoreInfo, setShowMoreInfo] = useState(false);
+    // This flag is controlled by ChatWidget to hide/show the carousel without unmounting Left
+    const [chatAllowsCarousel, setChatAllowsCarousel] = useState(true);
+    const [sessionId] = useState(generateSessionId());
 
-   const hamburgerRef = useRef();
+    const hamburgerRef = useRef();
 
 const handleAboutClick = () => {
   setShowAbout(prev => !prev);
@@ -387,7 +396,7 @@ const handleAboutClick = () => {
     `}
   </style>
 
-    ...
+   
           <Overlay>
             
 
@@ -491,11 +500,14 @@ const handleAboutClick = () => {
           />
           <button type="submit">Notify Me</button>
         </EmailForm>
+        <ChatWidget sessionId={sessionId}
+        setShowServiceCarousel={setChatAllowsCarousel}
+        />
       </Left>
           }
       <Right className="right">
-        <ServicesCarousel 
-        showserviceCaroursel={showserviceCaroursel} 
+        <ServicesCarousel
+        showserviceCaroursel={showserviceCaroursel && chatAllowsCarousel}
         setShowServiceCarousel={setShowServiceCarousel}
         />
       </Right>
@@ -513,4 +525,4 @@ const handleAboutClick = () => {
   )
 }
 
-export default Home
+export default Home1

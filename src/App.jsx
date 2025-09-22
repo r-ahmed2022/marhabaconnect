@@ -4,12 +4,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import './toastOverrides.css';
 
 import './App.scss'
+import Home1 from './components/Home1';
 const App = () => {
   return (
     <div className="app">
     <>
       <ToastContainer autoClose={2000} position="top-right" />
-      <Home />
+      <Home1 />
      </>
     </div>
   )

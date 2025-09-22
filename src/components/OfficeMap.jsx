@@ -79,7 +79,9 @@ const OfficeMap = () => {
       <Line>Sharjah Publishing City</Line>
       <Line>Sharjah, United Arab Emirates</Line>
 
-      
+      <MapContainer>
+        <MapFrame src={mapEmbedUrl} allowFullScreen loading="lazy" />
+      </MapContainer>
     </AddressWrapper>
   );
 };

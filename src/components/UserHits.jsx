@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 
-const App = () => {
+const UserHits = () => {
   useEffect(() => {
     ReactGA.initialize('G-2GRMRT1ZC4'); 
     ReactGA.pageview(window.location.pathname);
@@ -14,4 +14,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default UserHits;

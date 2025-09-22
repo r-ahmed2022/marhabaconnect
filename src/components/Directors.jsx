@@ -1,4 +1,5 @@
 import React from 'react'
+import { directors } from '../Team.js';
 
 const Directors = () => {
   return (
