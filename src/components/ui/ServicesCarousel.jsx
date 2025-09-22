@@ -22,7 +22,7 @@ const CarouselContainer = styled.div`
   @media (max-width: 480px) {
     width: 260px;
     height: 340px;
-  }
+    }
 
   @media (max-width: 375px) {
     width: 240px;
@@ -34,6 +34,7 @@ const CardContainer = styled.div`
   position: absolute;
   inset: 0;
   overflow: hidden;
+  
 `;
 
 const ServiceCard = styled(motion.div)`
@@ -48,7 +49,6 @@ const ServiceCard = styled(motion.div)`
   transition: background-color 0.3s ease;
   animation: float 3s ease-in-out infinite;
   touch-action: manipulation;
-
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
@@ -71,6 +71,8 @@ const ServiceCard = styled(motion.div)`
   @media (max-width: 480px) {
     padding: 18px;
     border-radius: 12px;
+    font-size: 0.9rem;
+
   }
 
   @media (max-width: 375px) {
@@ -93,8 +95,8 @@ const ServiceImage = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 `;
 
@@ -117,6 +119,8 @@ const ServiceName = styled.h3`
   }
   @media (max-width: 415px) {
     font-size: 1.2rem;
+    letter-spacing: 2px;
+    fontfamily: 'Roboto', sans-serif;
   }
 `;
 
@@ -134,7 +138,7 @@ const FeaturesList = styled.ul`
   li {
     position: relative;
     padding-left: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   li::before {
@@ -160,8 +164,9 @@ const FeaturesList = styled.ul`
     }
   }
     @media (max-width: 415px) {
-    font-size: 1.5rem;
-    margin-top: 0.8rem;
+    font-size: 1.6rem;
+     margin-top: 0rem;
+
     li {
       padding-left: 18px;
       margin-bottom: 6px;

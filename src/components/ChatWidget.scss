@@ -11,10 +11,15 @@
   cursor: pointer;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s, background 0.3s;
-  
+  z-index: 9999;
   &:hover {
     transform: scale(1.08);
     background: #d97706;
+  }
+  @media (min-width: 415px) and (max-width: 915px) {
+    padding: 12px;
+    font-size: 18px;
+    
   }
 }
 
